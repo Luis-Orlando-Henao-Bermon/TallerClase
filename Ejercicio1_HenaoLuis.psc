@@ -156,7 +156,7 @@ Algoritmo Ejercicio1_HenaoLuis
 				Para b<-0 Hasta d Hacer
 					
 					si modelos[b]=modeloCompra  Entonces //mira cual de los modelos es igual al modelo ingresado por el usuario y si uno es igual hace lo siguiente
-						si cantidadCompra> cantidadStock[b] Entonces //si la cantidad ingresada por el usuario es mayor a la que esta en stock le dice que no hay esa cantidad
+						si cantidadCompra> cantidadStock[b] o cantidadCompra< cantidadStock[b] Entonces //si la cantidad ingresada por el usuario es mayor a la que esta en stock le dice que no hay esa cantidad
 							Escribir "No tenemos esa cantidad de ese modelo"
 							cantidadStock[b]=cantidadStock[b]+cantidadCompra //le suma la cantidad ingresada por el usuario a la cantidad en stock para posteriormente restar esa cantidad
 							ar=ar+x //este es un contador para saber cuantos intentos de venta fallidos hay y x es el contador para saber cuantas ventas exitosas hay
