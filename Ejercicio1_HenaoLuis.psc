@@ -9,11 +9,11 @@
 //Modelo
 //Precio
 //Cantidad en stock
-//ID ï¿½nico
-//A continuaciï¿½n dejamos las indicaciones a tener en cuenta:
-//1. El programa debe almacenar la informaciï¿½n de los modelos de celulares en una estructura de datos como un diccionario o una lista de diccionarios.
+//ID ?nico
+//A continuaci?n dejamos las indicaciones a tener en cuenta:
+//1. El programa debe almacenar la informaci?n de los modelos de celulares en una estructura de datos como un diccionario o una lista de diccionarios.
 		
-//2. El programa debe tener una interfaz de usuario simple y fï¿½cil de entender que guï¿½e al usuario a travï¿½s de las diferentes opciones.
+//2. El programa debe tener una interfaz de usuario simple y f?cil de entender que gu?e al usuario a trav?s de las diferentes opciones.
 //Ejemplo de Interfaz de Usuario:
 
 Funcion menu 
@@ -24,7 +24,7 @@ Funcion menu
 	Escribir "4. Realizar una venta"
 	Escribir "5. Mostrar ventas realizadas" 
 	Escribir "6. Salir"
-	Escribir "Seleccione una opciï¿½n: "
+	Escribir "Seleccione una opcion: "
 	
 FinFuncion
 
@@ -43,6 +43,7 @@ Algoritmo Ejercicio1_HenaoLuis
 	Dimension precioVenta[100]
 	Dimension cantidadVenta[100]
 	Dimension idUnicoVenta[100]
+	Dimension intentoCompra[100]
 	modelos[0]="Iphone 11"
 	marca[0]="Apple"
 	precio[0]=2000000
@@ -80,7 +81,7 @@ Algoritmo Ejercicio1_HenaoLuis
 					Escribir modelos[a] " --- " marca[a] " --- " precio[a] " --- " cantidadStock[a] " --- " idUnico[a]
 				FinPara
 				
-				Escribir "ï¿½Quieres volver al menu anterior si/no?"
+				Escribir "¿Quieres volver al menu anterior si/no?"
 				Leer quieres
 				si	quieres="si" Entonces
 					Limpiar Pantalla
@@ -104,7 +105,7 @@ Algoritmo Ejercicio1_HenaoLuis
 				Escribir "ID unico del modelo"
 				Leer idUnico[d+1]
 				
-				Escribir "ï¿½Quieres volver al menu anterior si/no?"
+				Escribir "¿Quieres volver al menu anterior si/no?"
 				Leer quieres
 				si	quieres="si" Entonces
 					Limpiar Pantalla
@@ -121,16 +122,16 @@ Algoritmo Ejercicio1_HenaoLuis
 				para a=0 Hasta d Hacer
 					Escribir modelos[a] " --- " marca[a] " --- " precio[a] " --- " cantidadStock[a] " --- " idUnico[a]
 				FinPara
-				Escribir "ï¿½De que modelo quieres actualizar la cantidad"
+				Escribir "¿De que modelo quieres actualizar la cantidad"
 				Leer modeloAc
 				d=c-1
 				Para a<-0 Hasta d Hacer
 					si modelos[a]=modeloAc Entonces
-						Escribir "ï¿½Que cantidad de ese modelo hay ahora?"
+						Escribir "¿Que cantidad de ese modelo hay ahora?"
 						Leer cantidadStock[a]
 					FinSi
 				FinPara
-				Escribir "ï¿½Quieres volver al menu anterior si/no?"
+				Escribir "¿Quieres volver al menu anterior si/no?"
 				Leer quieres
 				si	quieres="si" Entonces
 					Limpiar Pantalla
@@ -147,9 +148,9 @@ Algoritmo Ejercicio1_HenaoLuis
 				para a=0 Hasta d Hacer
 					Escribir modelos[a] " --- " marca[a] " --- " precio[a] " --- " cantidadStock[a] " --- " idUnico[a]
 				FinPara
-				Escribir "ï¿½Que modelo deseas vender"
+				Escribir "¿Que modelo deseas vender?"
 				Leer modeloCompra
-				Escribir "ï¿½Cuantos deseas llevar?"
+				Escribir "¿Cuantos deseas llevar?"
 				Leer cantidadCompra
 				
 				Para b<-0 Hasta d Hacer
@@ -158,6 +159,8 @@ Algoritmo Ejercicio1_HenaoLuis
 						si cantidadCompra> cantidadStock[b] Entonces
 							Escribir "No tenemos esa cantidad de ese modelo"
 							cantidadStock[b]=cantidadStock[b]+cantidadCompra
+							ar=ar+1
+							intentoCompra[ar-1]="Intento de compra fallido"
 						FinSi
 						cantidadStock[b]=cantidadStock[b]-cantidadCompra
 						x=x+1
@@ -169,7 +172,7 @@ Algoritmo Ejercicio1_HenaoLuis
 					FinSi
 				FinPara
 				
-				Escribir "ï¿½Quieres volver al menu anterior si/no?"
+				Escribir "¿Quieres volver al menu anterior si/no?"
 				Leer quieres
 				si	quieres="si" Entonces
 					Limpiar Pantalla
@@ -184,10 +187,10 @@ Algoritmo Ejercicio1_HenaoLuis
 				Escribir "Modelo --- Marca --- Precio --- Cantidad en stock --- ID unico"
 			
 				para a=0 Hasta x-1 Hacer
-					Escribir modeloVenta[a] " --- " marcaVenta[a] " --- " precioVenta[a] " --- " cantidadVenta[a] " --- " idUnicoVenta[a]
+					Escribir modeloVenta[a] " --- " marcaVenta[a] " --- " precioVenta[a] " --- " cantidadVenta[a] " --- " idUnicoVenta[a] " " intentoCompra[a]
 				FinPara
 				
-				Escribir "ï¿½Quieres volver al menu anterior si/no?"
+				Escribir "¿Quieres volver al menu anterior si/no?"
 				Leer quieres
 				si	quieres="si" Entonces
 					Limpiar Pantalla
