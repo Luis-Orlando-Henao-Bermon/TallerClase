@@ -153,11 +153,11 @@ Algoritmo Ejercicio1_HenaoLuis
 				Leer cantidadCompra
 				
 				Para b<-0 Hasta d Hacer
-					aaaa=Verdadero
-					si modelos[b]=modeloCompra y aaaa=Verdadero Entonces
+					
+					si modelos[b]=modeloCompra  Entonces
 						si cantidadCompra> cantidadStock[b] Entonces
 							Escribir "No tenemos esa cantidad de ese modelo"
-							aaaa=Falso
+							cantidadStock[b]=cantidadStock[b]+cantidadCompra
 						FinSi
 						cantidadStock[b]=cantidadStock[b]-cantidadCompra
 						x=x+1
@@ -167,12 +167,6 @@ Algoritmo Ejercicio1_HenaoLuis
 						cantidadVenta[x-1]=cantidadCompra
 						idUnicoVenta[x-1]=idUnico[b]
 					FinSi
-					
-					
-					
-				
-					
-					
 				FinPara
 				
 				Escribir "¿Quieres volver al menu anterior si/no?"
