@@ -65,7 +65,7 @@ Algoritmo Ejercicio1_HenaoLuis
 	
 	Mientras bool=Verdadero Hacer
 		c=0
-		Para i<-0 Hasta 99 Hacer
+		Para i<-0 Hasta 99 Hacer //este es un contador para que cada vez que en el stock haya 1 o mas de 1 sume 1 al contador y asi saber cuantos modelos hay
 			
 			si cantidadStock[i]>=1 Entonces
 				c=c+1
@@ -76,12 +76,12 @@ Algoritmo Ejercicio1_HenaoLuis
 			1:
 				Limpiar Pantalla
 				Escribir "Modelo --- Marca --- Precio --- Cantidad en stock --- ID unico"
-				d=c-1
-				para a=0 Hasta d Hacer
+				d=c-1 //es el contador hecho anteriormente menos uno para usarlo en los bucles que empiezan desde 0
+				para a=0 Hasta d Hacer//muestra todos los modelos, marcas, precios, cantidad en stock e id unico que hayan en todos los arreglos hasta el contador hecho anteriormente 
 					Escribir modelos[a] " --- " marca[a] " --- " precio[a] " --- " cantidadStock[a] " --- " idUnico[a]
 				FinPara
 				
-				Escribir "¿Quieres volver al menu anterior si/no?"
+				Escribir "¿Quieres volver al menu anterior si/no?" //esto es por si dicen que si y quieren volver al menu anterior empuece de nuevo todo el segun
 				Leer quieres
 				si	quieres="si" Entonces
 					Limpiar Pantalla
@@ -94,7 +94,7 @@ Algoritmo Ejercicio1_HenaoLuis
 			2:
 				Limpiar Pantalla
 				d=c-1
-				Escribir "Nombre del modelo:"
+				Escribir "Nombre del modelo:" //aca guarda el nuevo modelo con su marca, precio, cantidad en stock e id unico en el arreglo que va despues de la cantidad que ya tenia anteriormente
 				Leer modelos[d+1]
 				Escribir "Marca del modelo:"
 				Leer marca[d+1]
@@ -105,7 +105,7 @@ Algoritmo Ejercicio1_HenaoLuis
 				Escribir "ID unico del modelo"
 				Leer idUnico[d+1]
 				
-				Escribir "¿Quieres volver al menu anterior si/no?"
+				Escribir "¿Quieres volver al menu anterior si/no?"//esto es por si dicen que si y quieren volver al menu anterior empuece de nuevo todo el segun
 				Leer quieres
 				si	quieres="si" Entonces
 					Limpiar Pantalla
@@ -119,19 +119,19 @@ Algoritmo Ejercicio1_HenaoLuis
 				Escribir "modelos"
 				Escribir "Modelo --- Marca --- Precio --- Cantidad en stock --- ID unico"
 				d=c-1
-				para a=0 Hasta d Hacer
+				para a=0 Hasta d Hacer//muestra todos los modelos, marcas, precios, cantidad en stock e id unico que hayan en todos los arreglos hasta el contador hecho anteriormente mas los que agregaron en la opcion 2 
 					Escribir modelos[a] " --- " marca[a] " --- " precio[a] " --- " cantidadStock[a] " --- " idUnico[a]
 				FinPara
-				Escribir "¿De que modelo quieres actualizar la cantidad"
+				Escribir "¿De que modelo quieres actualizar la cantidad" //pregunta el modelo del que quiere actualizar la cantidad
 				Leer modeloAc
 				d=c-1
 				Para a<-0 Hasta d Hacer
-					si modelos[a]=modeloAc Entonces
+					si modelos[a]=modeloAc Entonces //compara todos los modelos que hay con el modelo ingresado y si alguno es igual pregunta la cantidad que hay ahora 
 						Escribir "¿Que cantidad de ese modelo hay ahora?"
-						Leer cantidadStock[a]
+						Leer cantidadStock[a] //remplaza la cantidad antigua por la que acabo de ingresar el usuario
 					FinSi
 				FinPara
-				Escribir "¿Quieres volver al menu anterior si/no?"
+				Escribir "¿Quieres volver al menu anterior si/no?"//esto es por si dicen que si y quieren volver al menu anterior empuece de nuevo todo el segun
 				Leer quieres
 				si	quieres="si" Entonces
 					Limpiar Pantalla
@@ -145,7 +145,7 @@ Algoritmo Ejercicio1_HenaoLuis
 				Escribir "Modelos disponibles:"
 				Escribir "Modelo --- Marca --- Precio --- Cantidad en stock --- ID unico"
 				d=c-1
-				para a=0 Hasta d Hacer
+				para a=0 Hasta d Hacer//muestra todos los modelos, marcas, precios, cantidad en stock e id unico que hayan en todos los arreglos hasta el contador hecho anteriormente mas los que agregaron en la opcion 2 
 					Escribir modelos[a] " --- " marca[a] " --- " precio[a] " --- " cantidadStock[a] " --- " idUnico[a]
 				FinPara
 				Escribir "¿Que modelo deseas vender?"
@@ -155,16 +155,17 @@ Algoritmo Ejercicio1_HenaoLuis
 				
 				Para b<-0 Hasta d Hacer
 					
-					si modelos[b]=modeloCompra  Entonces
-						si cantidadCompra> cantidadStock[b] Entonces
+					si modelos[b]=modeloCompra  Entonces //mira cual de los modelos es igual al modelo ingresado por el usuario y si uno es igual hace lo siguiente
+						si cantidadCompra> cantidadStock[b] Entonces //si la cantidad ingresada por el usuario es mayor a la que esta en stock le dice que no hay esa cantidad
 							Escribir "No tenemos esa cantidad de ese modelo"
-							cantidadStock[b]=cantidadStock[b]+cantidadCompra
-							ar=ar+1
-							intentoCompra[ar-1]="Intento de compra fallido"
+							cantidadStock[b]=cantidadStock[b]+cantidadCompra //le suma la cantidad ingresada por el usuario a la cantidad en stock para posteriormente restar esa cantidad
+							ar=ar+x //este es un contador para saber cuantos intentos de venta fallidos hay y x es el contador para saber cuantas ventas exitosas hay
+							intentoCompra[ar]="Intento de compra fallido"
 						FinSi
-						cantidadStock[b]=cantidadStock[b]-cantidadCompra
-						x=x+1
-						modeloVenta[x-1]=modelos[b]
+						cantidadStock[b]=cantidadStock[b]-cantidadCompra //aca se le resta la cantidad de venta hecha por el usuario y si la compra habia sido fallida 
+						//anteriormente se le habia sumado la misma cantidad para que al restarle quedara la misma cantidad que habia en un principio en stock 
+						x=x+1 //este es un contador para saber cuantos intentos de compra hay 
+						modeloVenta[x-1]=modelos[b] //aca se guardan las compras hechas y se guardan en la posicion del contador
 						marcaVenta[x-1]=marca[b]
 						precioVenta[x-1]=precio[b]
 						cantidadVenta[x-1]=cantidadCompra
@@ -172,7 +173,7 @@ Algoritmo Ejercicio1_HenaoLuis
 					FinSi
 				FinPara
 				
-				Escribir "¿Quieres volver al menu anterior si/no?"
+				Escribir "¿Quieres volver al menu anterior si/no?"//esto es por si dicen que si y quieren volver al menu anterior empuece de nuevo todo el segun
 				Leer quieres
 				si	quieres="si" Entonces
 					Limpiar Pantalla
@@ -186,11 +187,11 @@ Algoritmo Ejercicio1_HenaoLuis
 				Escribir "Ventas realizadas"
 				Escribir "Modelo --- Marca --- Precio --- Cantidad en stock --- ID unico"
 			
-				para a=0 Hasta x-1 Hacer
+				para a=0 Hasta x-1 Hacer //se muestran las compras hechas que ya se vio anteriormente como se guardaban y ademas de eso muestra si la compra fue fallida 
 					Escribir modeloVenta[a] " --- " marcaVenta[a] " --- " precioVenta[a] " --- " cantidadVenta[a] " --- " idUnicoVenta[a] " " intentoCompra[a]
 				FinPara
 				
-				Escribir "¿Quieres volver al menu anterior si/no?"
+				Escribir "¿Quieres volver al menu anterior si/no?"//esto es por si dicen que si y quieren volver al menu anterior empuece de nuevo todo el segun
 				Leer quieres
 				si	quieres="si" Entonces
 					Limpiar Pantalla
